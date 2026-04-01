@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="الأهرام للصناعات والتشكيلات المعدنية - اتصل بنا لطلب تسعيرة">
+    <meta name="keywords" content="صناعات معدنية, لحام, طلب تسعيرة, الأهرام, اتصل بنا">
+    <title>اتصل بنا - الأهرام للصناعات والتشكيلات المعدنية</title>
+
+    <!-- PWA Settings -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#f59e0b">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icons/icon.svg">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --primary-main: #1e293b;
+            --accent-main: #f59e0b;
+            --white: #fff;
+            --glass-bg: rgba(15, 23, 42, .7);
+            --glass-border: rgba(255, 255, 255, .1)
+        }
+
+        body {
+            font-family: Cairo, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+            background: #fff
+        }
+
+        header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .menu-toggle {
+            display: none;
+            background: 0 0;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer
+        }
+
+        nav ul {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            list-style: none
+        }
+
+        @media (min-width: 993px) {
+            nav#mainNav {
+                display: block !important;
+                position: static !important;
+                width: auto !important;
+                height: auto !important;
+                background: none !important;
+                padding: 0 !important;
+            }
+        }
+
+        nav a {
+            color: var(--white);
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none
+        }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            visibility: hidden
+        }
+
+        .loader-content {
+            text-align: center;
+            color: var(--white)
+        }
+
+        .loader-logo {
+            font-size: 4rem;
+            margin-bottom: 20px
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, .2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto 15px
+        }
+
+        @media(max-width:992px) {
+            .menu-toggle {
+                display: block
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-main) 0%, #0284c7 100%);
+            padding: 120px 20px 60px;
+            text-align: center;
+            color: #fff
+        }
+    </style>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css?v=17">
+    <link rel="stylesheet" href="css/responsive-fixed.css?v=17">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🏭</text></svg>">
+</head>
+
+<body>
+
+    <!-- ============================================
+         PRELOADER
+         ============================================ -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">🏭</div>
+            <div class="loader-bar"></div>
+            <p>الأهرام للصناعات المعدنية...</p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         HEADER & NAVIGATION
+         ============================================ -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>🏭 الأهرام للصناعات والتشكيلات المعدنية</h1>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                ☰
+            </button>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li class="dropdown">
+                        <a href="services.html">خدماتنا</a>
+                        <div class="dropdown-content">
+                            <a href="services.html#welding">لحام جميع أنواع المعادن</a>
+                            <a href="services.html#forming">تشكيل ولف المعادن</a>
+                            <a href="services.html#machining">خراطة وتفريز (Machining)</a>
+                            <a href="services.html#construction">الإنشاءات المعدنية</a>
+                            <a href="services.html#food">خطوط الإنتاج الصناعية</a>
+                            <a href="services.html#maintenance">الصيانة والإصلاح</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html" class="active">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+         PAGE HERO
+         ============================================ -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>اتصل بنا</h1>
+            <p>نحن هنا للإجابة على استفساراتكم وتقديم أفضل الحلول لمشاريعكم الصناعية</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         REQUEST A QUOTE SECTION
+         ============================================ -->
+    <section id="quote" class="reveal">
+        <div class="container">
+            <div class="quote-wrapper">
+                <div class="quote-info">
+                    <h2>طلب تسعيرة</h2>
+                    <p>هل لديك مشروع قادم؟ أخبرنا بالتفاصيل وسيقوم فريقنا الفني بدراسة طلبك وتقديم أفضل عرض سعر ممكن.
+                    </p>
+                    <ul class="contact-brief">
+                        <li>📍 صنعاء - اليمن</li>
+                        <li>📞 +967 777 123 456</li>
+                        <li>📧 info@ahram-metal.com</li>
+                    </ul>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>نوع الخدمة المطلوبة</option>
+                            <option value="welding">لحام وتشكيل</option>
+                            <option value="construction">إنشاءات معدنية</option>
+                            <option value="machining">خراطة وتفريز</option>
+                            <option value="food">صناعات غذائية/دوائية</option>
+                            <option value="maintenance">صيانة وإصلاح</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="تفاصيل المشروع..." rows="4"
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button primary" id="submitBtn">
+                        <span class="btn-text">إرسال الطلب</span>
+                        <span class="btn-loader" style="display: none;">⌛</span>
+                    </button>
+                    <div id="formStatus" class="form-status"
+                        style="display: none; margin-top: 15px; padding: 10px; border-radius: 8px; text-align: center;">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MAP SECTION
+         ============================================ -->
+    <section id="location-map" class="reveal">
+        <div class="container">
+            <div class="section-title">
+                <h2>موقعنا</h2>
+                <p>تفضلوا بزيارتنا في مقر المصنع - صنعاء، اليمن</p>
+            </div>
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15386.294!2d44.2045!3d15.3524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1603dbab201e7e73%3A0x9d0046b45e7f6a73!2sSana'a%2C%20Yemen!5e0!3m2!1sen!2s!4v1703681234567!5m2!1sen!2s"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>الأهرام للصناعات المعدنية</h3>
+                    <p>
+                        نحن شركة رائدة في مجال الصناعات والتشكيلات المعدنية، نقدم خدمات احترافية
+                        متكاملة في لحام وتشكيل المعادن بأحدث التقنيات العالمية.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 320 512" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M279.1 288l14.2-92.7h-88.9V135c0-25.5 12.5-50.3 52.6-50.3h40.6V5.8c-24.4-4.2-49.1-6.4-73.9-6.4-74.9 0-123.8 45.4-123.8 127.6V195.3h-81.5v92.7h81.5V512h100.1V288h88.9z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <ul>
+                        <li>📞 الهاتف: +967 777 123 456</li>
+                        <li>📧 البريد: info@ahram-metal.com</li>
+                        <li>📍 العنوان: صنعاء - اليمن</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 الأهرام للصناعات والتشكيلات المعدنية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         FLOATING ACTIONS (WhatsApp & Back to Top)
+         ============================================ -->
+    <div class="floating-actions">
+        <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+            ↑
+        </button>
+        <a href="https://wa.me/967736499765" class="whatsapp-btn" target="_blank" aria-label="Contact on WhatsApp">
+            <svg viewBox="0 0 448 512" width="25" height="25" fill="currentColor">
+                <path
+                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.6-30.6-37.9-3.2-5.5-.3-8.5 2.5-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.6-9.2 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+            </svg>
+            <span>واتساب</span>
+        </a>
+    </div>
+
+    <!-- ============================================
+         BOTTOM NAVIGATION (Mobile Only)
+         ============================================ -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="services.html" class="bottom-nav-item">
+            <i class="fas fa-cogs"></i>
+            <span>خدماتنا</span>
+        </a>
+        <a href="https://wa.me/967736499765" class="bottom-nav-item highlight">
+            <i class="fab fa-whatsapp"></i>
+            <span>واتساب</span>
+        </a>
+        <a href="about.html" class="bottom-nav-item">
+            <i class="fas fa-info-circle"></i>
+            <span>من نحن</span>
+        </a>
+        <a href="contact.html" class="bottom-nav-item active">
+            <i class="fas fa-envelope"></i>
+            <span>اتصل بنا</span>
+        </a>
+    </nav>
+
+    <!-- Main JavaScript File -->
+    <script src="js/main.js?v=17"></script>
+
+</body>
+
+</html>

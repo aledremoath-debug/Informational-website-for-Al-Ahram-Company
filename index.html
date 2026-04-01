@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="الأهرام للصناعات والتشكيلات المعدنية - خبراء في لحام وتشكيل المعادن">
+    <meta name="keywords" content="صناعات معدنية, لحام, تشكيل معادن, الأهرام, صنعاء, اليمن">
+    <meta name="author" content="الأهرام للصناعات والتشكيلات المعدنية">
+    <title>الأهرام للصناعات والتشكيلات المعدنية</title>
+
+    <meta property="og:description" content="تشكيل ولف المعادن، لحام، خراطة وتفريز، وإنشاءات معدنية كبرى.">
+    <meta property="og:image" content="images/hero-premium.png">
+
+    <!-- PWA Settings -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#f59e0b">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Al-Ahram">
+    <link rel="apple-touch-icon" href="icons/icon.svg">
+
+    <!-- Preload LCP Image -->
+    <link rel="preload" as="image" href="images3/A_hyper-realistic_industrial_scene_of_a_powerful_w-1767032910113.webp"
+        fetchpriority="high">
+
+    <!-- Preconnect to External Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Critical CSS Inline for FCP -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --primary-main: #1e293b;
+            --accent-main: #f59e0b;
+            --white: #fff;
+            --glass-bg: rgba(15, 23, 42, .7);
+            --glass-border: rgba(255, 255, 255, .1)
+        }
+
+        body {
+            font-family: Cairo, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+            background: #fff
+        }
+
+        header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .menu-toggle {
+            display: none;
+            background: 0 0;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer
+        }
+
+        nav ul {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            list-style: none
+        }
+
+        nav a {
+            color: var(--white);
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none
+        }
+
+        .hero {
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 12vh;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            background: var(--primary-main)
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out
+        }
+
+        .hero-slide.active {
+            opacity: 1
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, .4) 0%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .5) 100%);
+            z-index: 1;
+            pointer-events: none
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 40px;
+            min-height: 350px
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2vw, 1.6rem);
+            margin-bottom: 40px;
+            font-weight: 600;
+            line-height: 1.8;
+            color: #fff;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, .8);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .hero-btns {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 20
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            gap: 10px
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            color: var(--white);
+            box-shadow: 0 10px 20px -10px rgba(245, 158, 11, .5)
+        }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity .5s ease, visibility .5s ease
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            visibility: hidden
+        }
+
+        .loader-content {
+            text-align: center;
+            color: var(--white)
+        }
+
+        .loader-logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: pulse 1.5s ease-in-out infinite
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, .2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto 15px
+        }
+
+        .loader-bar::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 100%;
+            background: var(--accent-main);
+            animation: loading 1.5s ease-in-out infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.1)
+            }
+        }
+
+        @keyframes loading {
+            0% {
+                transform: translateX(-100%)
+            }
+
+            100% {
+                transform: translateX(300%)
+            }
+        }
+
+        @media(max-width:992px) {
+            .menu-toggle {
+                display: block
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+    </style>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS Files -->
+    <link rel="stylesheet" href="css/style.css?v=17">
+    <link rel="stylesheet" href="css/tech-enhancements.css?v=17">
+    <link rel="stylesheet" href="css/technologies.css?v=17">
+    <link rel="stylesheet" href="css/responsive-fixed.css?v=17">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🏭</text></svg>">
+
+    <script>
+        // PWA Service Worker Registration - Deferred
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker: Registered'))
+                    .catch(err => console.log(`Service Worker: Error: ${err}`));
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- ============================================
+         PRELOADER
+         ============================================ -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">🏭</div>
+            <div class="loader-bar"></div>
+            <p>الأهرام للصناعات المعدنية...</p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         HEADER & NAVIGATION
+         ============================================ -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>🏭 الأهرام للصناعات والتشكيلات المعدنية</h1>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                ☰
+            </button>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li class="dropdown">
+                        <a href="services.html">خدماتنا</a>
+                        <div class="dropdown-content">
+                            <a href="services.html#welding">لحام جميع أنواع المعادن</a>
+                            <a href="services.html#forming">تشكيل ولف المعادن</a>
+                            <a href="services.html#machining">خراطة وتفريز (Machining)</a>
+                            <a href="services.html#construction">الإنشاءات المعدنية</a>
+                            <a href="services.html#food">خطوط الإنتاج الصناعية</a>
+                            <a href="services.html#maintenance">الصيانة والإصلاح</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                    <li class="nav-highlight"><a href="brochure.pdf" download>تحميل البرشور 📥</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION - Optimized for LCP
+         ============================================ -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <!-- First slide loads immediately for LCP -->
+            <div class="hero-slide active"
+                style="background-image: url('images3/A_hyper-realistic_industrial_scene_of_a_powerful_w-1767032910113.webp');"
+                fetchpriority="high">
+            </div>
+            <!-- Remaining slides use data-bg for lazy loading -->
+            <div class="hero-slide"
+                data-bg="images3/A_photorealistic_depiction_of_a_dramatic_laser_cut-1767032925979.webp">
+            </div>
+            <div class="hero-slide"
+                data-bg="images3/A_CNC_bending_machine_Ermaksan_3100_standing_pro-1767034490452.webp">
+            </div>
+            <div class="hero-slide"
+                data-bg="images3/A_powerful_industrial_plate_rolling_machine_in_a_f-1767034143051.webp">
+            </div>
+            <div class="hero-slide"
+                data-bg="images3/A_photorealistic_image_of_industrial_shearing_usin-1767032957267.webp">
+            </div>
+            <div class="hero-slide"
+                data-bg="images3/A_dynamic_industrial_scene_focused_on_a_powerful_h-1767034479176.webp">
+            </div>
+            <div class="hero-slide"
+                data-bg="images3/A_photorealistic_depiction_of_a_metal_bending_mach-1767032970844.webp">
+            </div>
+            <div class="hero-slide"
+                data-bg="images3/An_industrial_scene_depicting_the_rolling_and_asse-1767034160779.webp">
+            </div>
+            <div class="hero-slide"
+                data-bg="images3/An_artistic_representation_of_winding_rockets_feat-1767034510787.webp">
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title" id="heroTitle">لحام احترافي لجميع المعادن</h1>
+            <p class="hero-tagline" id="heroTagline">نستخدم أحدث تقنيات اللحام (TIG/MIG) لضمان متانة أبدية ودقة عالية في
+                جميع الوصلات المعدنية.</p>
+        </div>
+        <div class="hero-btns" id="heroDynamicBtnContainer">
+            <a href="services.html#welding" class="cta-button primary dynamic-btn" id="heroHeroDynamicBtn">عرض خدمات
+                اللحام</a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TECHNOLOGIES GRID SECTION
+         ============================================ -->
+    <section id="technologies" class="reveal" style="padding: 60px 0 100px; background-color: #f0f7ff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>نبذة عن الخدمات</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-image-wrapper">
+                        <img src="images3/A_photorealistic_depiction_of_a_dramatic_laser_cut-1767032925979.webp"
+                            alt="ماكينات الليزر" class="tech-image" loading="lazy" decoding="async" width="400"
+                            height="300" style="aspect-ratio: 4/3; object-fit: cover;">
+                        <a href="services.html#laser-precision" class="tech-overlay">
+                            <span class="overlay-text">معرفة المزيد</span>
+                            <i class="overlay-icon">→</i>
+                        </a>
+                    </div>
+                    <h3>ماكينات الليزر الحديثة</h3>
+                    <p>قص دقيق بتقنية الألياف الضوئية حتى 25 ملم</p>
+                    <a href="https://wa.me/967736499765?text=أريد عرض سعر لماكينات الليزر" class="tech-quote-btn"
+                        target="_blank">احصل على عرض سعر</a>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-image-wrapper">
+                        <img src="images3/A_dynamic_industrial_scene_focused_on_a_powerful_h-1767034479176.webp"
+                            alt="مخارط CNC" class="tech-image" loading="lazy" decoding="async" width="400" height="300"
+                            style="aspect-ratio: 4/3; object-fit: cover;">
+                        <a href="services.html#cnc-gears" class="tech-overlay">
+                            <span class="overlay-text">معرفة المزيد</span>
+                            <i class="overlay-icon">→</i>
+                        </a>
+                    </div>
+                    <h3>مخارط CNC المتطورة</h3>
+                    <p>تصنيع الأجزاء الميكانيكية بدقة متناهية</p>
+                    <a href="https://wa.me/967736499765?text=أريد عرض سعر لمخارط CNC" class="tech-quote-btn"
+                        target="_blank">احصل على عرض سعر</a>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-image-wrapper">
+                        <img src="images3/A_hyper-realistic_industrial_scene_of_a_powerful_w-1767032910113.webp"
+                            alt="معدات اللحام" class="tech-image" loading="lazy" decoding="async" width="400"
+                            height="300" style="aspect-ratio: 4/3; object-fit: cover;">
+                        <a href="services.html#arc-structures" class="tech-overlay">
+                            <span class="overlay-text">معرفة المزيد</span>
+                            <i class="overlay-icon">→</i>
+                        </a>
+                    </div>
+                    <h3>معدات اللحام الاحترافية</h3>
+                    <p>لحام TIG وMIG بأعلى معايير الجودة</p>
+                    <a href="https://wa.me/967736499765?text=أريد عرض سعر لخدمات اللحام" class="tech-quote-btn"
+                        target="_blank">احصل على عرض سعر</a>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-image-wrapper">
+                        <img src="images3/A_photorealistic_depiction_of_a_metal_bending_mach-1767032970844.webp"
+                            alt="مكابس هيدروليكية" class="tech-image" loading="lazy" decoding="async" width="400"
+                            height="300" style="aspect-ratio: 4/3; object-fit: cover;">
+                        <a href="services.html#forming-rolls" class="tech-overlay">
+                            <span class="overlay-text">معرفة المزيد</span>
+                            <i class="overlay-icon">→</i>
+                        </a>
+                    </div>
+                    <h3>مكابس هيدروليكية</h3>
+                    <p>تشكيل وثني المعادن بقوة تصل لـ 400 طن</p>
+                    <a href="https://wa.me/967736499765?text=أريد عرض سعر للمكابس الهيدروليكية" class="tech-quote-btn"
+                        target="_blank">احصل على عرض سعر</a>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-image-wrapper">
+                        <img src="images/service-laser-cutting.png" alt="أنظمة القص" class="tech-image" loading="lazy"
+                            decoding="async">
+                        <a href="services.html#laser-thick" class="tech-overlay">
+                            <span class="overlay-text">معرفة المزيد</span>
+                            <i class="overlay-icon">→</i>
+                        </a>
+                    </div>
+                    <h3>أنظمة القص الميكانيكي</h3>
+                    <p>قص الألواح المعدنية بمختلف السماكات</p>
+                    <a href="https://wa.me/967736499765?text=أريد عرض سعر لأنظمة القص" class="tech-quote-btn"
+                        target="_blank">احصل على عرض سعر</a>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-image-wrapper">
+                        <img src="images/service-tig-welding.png" alt="معدات التشطيب" class="tech-image" loading="lazy"
+                            decoding="async">
+                        <a href="services.html#tig-stainless" class="tech-overlay">
+                            <span class="overlay-text">معرفة المزيد</span>
+                            <i class="overlay-icon">→</i>
+                        </a>
+                    </div>
+                    <h3>معدات التشطيب والصقل</h3>
+                    <p>تشطيبات نهائية بلمسة احترافية مثالية</p>
+                    <a href="https://wa.me/967736499765?text=أريد عرض سعر لخدمات التشطيب" class="tech-quote-btn"
+                        target="_blank">احصل على عرض سعر</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         QUALITY SECTION
+         ============================================ -->
+
+
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section id="why-choose-us" class="reveal reveal-right">
+        <div class="container">
+            <div class="section-title">
+                <h2>لماذا تختار الأهرام؟</h2>
+                <p>نتميز بالخبرة والجودة والتفاني في تقديم أفضل الخدمات</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card modular-card solid-card">
+                    <div class="why-icon">🏆</div>
+                    <h3>خبرة موثوقة</h3>
+                    <p>خبرة واسعة في تشكيل المعادن وجودة خدمات مضمونة على مدار سنوات طويلة من العمل في هذا المجال</p>
+                </div>
+                <div class="why-card modular-card solid-card">
+                    <div class="why-icon">⚡</div>
+                    <h3>التقنيات الحديثة</h3>
+                    <p>استخدام أحدث المعدات والتقنيات لدقة وكفاءة عالية في جميع عمليات التصنيع والتشكيل</p>
+                </div>
+                <div class="why-card modular-card solid-card">
+                    <div class="why-icon">😊</div>
+                    <h3>رضا العملاء</h3>
+                    <p>مصلحتك أولويتنا، ونسعى دائماً لتلبية احتياجاتك وتجاوز توقعاتك في كل مشروع</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>الأهرام للصناعات المعدنية</h3>
+                    <p>
+                        نحن شركة رائدة في مجال الصناعات والتشكيلات المعدنية، نقدم خدمات احترافية
+                        متكاملة في لحام وتشكيل المعادن بأحدث التقنيات العالمية.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 320 512" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M279.1 288l14.2-92.7h-88.9V135c0-25.5 12.5-50.3 52.6-50.3h40.6V5.8c-24.4-4.2-49.1-6.4-73.9-6.4-74.9 0-123.8 45.4-123.8 127.6V195.3h-81.5v92.7h81.5V512h100.1V288h88.9z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <ul>
+                        <li>📞 الهاتف: +967 777 123 456</li>
+                        <li>📧 البريد: info@ahram-metal.com</li>
+                        <li>📍 العنوان: صنعاء - اليمن</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 الأهرام للصناعات والتشكيلات المعدنية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         FLOATING ACTIONS (WhatsApp & Back to Top)
+         ============================================ -->
+    <div class="floating-actions">
+        <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+            ↑
+        </button>
+        <a href="https://wa.me/967736499765" class="whatsapp-btn" target="_blank" aria-label="Contact on WhatsApp">
+            <svg viewBox="0 0 448 512" width="25" height="25" fill="currentColor">
+                <path
+                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.6-30.6-37.9-3.2-5.5-.3-8.5 2.5-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.6-9.2 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+            </svg>
+            <span>واتساب</span>
+        </a>
+    </div>
+
+    <!-- ============================================
+         MODAL FOR DEEP DIVE DETAILS
+         ============================================ -->
+    <div id="serviceModal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div id="modalContent" class="modal-content">
+                <!-- Content injected dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         BOTTOM NAVIGATION (Mobile Only)
+         ============================================ -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="services.html" class="bottom-nav-item">
+            <i class="fas fa-cogs"></i>
+            <span>خدماتنا</span>
+        </a>
+        <a href="https://wa.me/967736499765" class="bottom-nav-item highlight">
+            <i class="fab fa-whatsapp"></i>
+            <span>واتساب</span>
+        </a>
+        <a href="about.html" class="bottom-nav-item">
+            <i class="fas fa-info-circle"></i>
+            <span>من نحن</span>
+        </a>
+        <a href="contact.html" class="bottom-nav-item">
+            <i class="fas fa-envelope"></i>
+            <span>اتصل بنا</span>
+        </a>
+    </nav>
+
+    <!-- Main JavaScript File -->
+    <script src="js/main.js?v=17"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <!-- Background Circle -->
+    <circle cx="256" cy="256" r="240" fill="#0c1424"/>
+    
+    <!-- Stylized Pyramids -->
+    <path d="M256 120 L100 400 L412 400 Z" fill="#f59e0b"/>
+    <path d="M256 120 L300 400 L412 400 Z" fill="#fbbf24"/>
+    
+    <!-- Industrial Gear Pattern at Bottom -->
+    <path d="M200 400 L210 420 L230 420 L240 400 M272 400 L282 420 L302 420 L312 400" stroke="#f59e0b" stroke-width="8" fill="none"/>
+    
+    <!-- Factory Symbol Overlay -->
+    <text x="256" y="320" font-family="Arial" font-size="80" text-anchor="middle" fill="#0c1424">🏭</text>
+</svg>
